@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora de resultados</h1>
+    <p id="nota"></p>
+
+    <script>
+       /**@author Celestino Amigo
+        * Para tarea 2 módulo de DWEC en CIDEAD*/
+
+
+       /**
+    * Función que determina la calificación literal según la nota numérica introducida.
+    * * @param {number} nota - La nota numérica obtenida, debe ser un valor entre 0 y 10.
+     * @returns {string} El mensaje con la calificación y la nota introducida.
+     * @throws {Error} Si la nota no es un número válido o está fuera del rango [0, 10].
+    */
+       function calificaNota(notaString) {
+        
+
+        //MANEJO DE ERRORES
+        // Error 3: Entrada vacía o nula (Cancelación/Vacío). Si es un string salta el if
+        if (notaString === null || notaString.trim() === "") {
+        throw new Error("GENERICO: Proceso cancelado o entrada vacía.");
+        }
+
+        // Si no se da lo anterior, pasamos a convertir notaString a un float.
+        // Si no fuese un número, devolvería un NaN, por lo que hay que crear los siguientes errores
+        const nota = parseFloat(notaString.trim());
+    
+        // Error 2: Caracteres no esperados (incluye NaN, que sucede si hay texto)
+        if (isNaN(nota)) {
+        throw new Error("CARACTERES NO ESPERADOS: La nota debe ser un valor numérico.");
+        }
+    
+        // Error 1: Fuera de rango [0, 10]
+        if (nota < 0 || nota > 10) {
+        throw new Error("FUERA DE RANGO: La nota debe estar entre 0 y 10.");
+        }
+
+       
+
+        //GESTIÓN DE NOTAS
+
+        //suspenso
+        if (nota<5) {
+            return `Has obtenido un suspenso. La nota introducida es ${nota}.`;
+        //aprobado
+        } else if (nota >=5 && nota<6) {
+            return `Has obtenido un aprobado. La nota introducida es ${nota}.`;
+        //bien
+        } else if (nota >=6 && nota <7){
+            return `Has obtenido un bien. La nota introducida es ${nota}.`;
+        //notable
+        } else if (nota >=7 && nota <9) {
+            return `Has obtenido un notable. La nota introducida es ${nota}.`;
+        //sobresaliente
+        } else if (nota >=9 && nota <=10) {
+            return `Has obtenido un sobresaliente. La nota introducida es ${nota}.`;
+        }}
+    
+
+        /**
+        * Función que solicita la nota al usuario por prompt y procesa el resultado.
+        * Maneja errores de entrada (cancelación, valores inválidos) usando try...catch definidos en la función anterior.
+        */
+
+        function darNota() {
+
+        //creamos la constante párrafo a la que se le asignará el resultado, sea error o no.    
+        const parrafo = document.getElementById("nota");
+    
+        // Solicitamos la nota al usuario
+        let notaString = prompt("Introduce tu nota (entre 0 y 10):");
+
+        try {
+            // Bloque TRY: Ejecuta el código que puede lanzar un error (calificaNota)
+            const resultadoMensaje = calificaNota(notaString);
+        
+             // Si no hay error, mostramos el mensaje de éxito
+            parrafo.textContent = resultadoMensaje;
+
+
+             } catch (error) {
+            
+            // Bloque CATCH: Captura el error lanzado y lo maneja
+            const mensajeError = error.message;
+
+            // Se muestra un mensaje de error único, sin clasificación específica
+            parrafo.textContent = mensajeError; 
+    }
+}
+ 
+
+        darNota()
+
+    </script>
+
+
+</body>
+</html>

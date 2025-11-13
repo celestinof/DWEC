@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center">Tarea 3, módulo 2 de DWEC</h1>
+    <p id="opcion elegida"></p>
+
+    <div id="factorial" style="display: none;">
+        <h3>Factorial de un número positivo</h1>
+        <p></p>
+    </div>
+    <br>
+    <div id="media" style="display:none;">
+        <h3>Calcular media aritmética de una lista</h1>
+        <p></p>
+    </div>
+    <br>
+    <div id="palindromo" style="display:none;">
+        <h3>Verificar Palíndromo</h1>
+        <p></p>
+    </div>
+    <br>
+    <div id="dni" style="display:none;">
+        <h3>Verifica DNi correcto</h1>
+        <p></p>
+
+
+        <script>
+            /** Constantes que redirigen a cada una de las secciones del ejercicio            */
+            const factorial=document.getElementById("factorial");
+            const media=document.getElementById("media");
+            const palindromo=document.getElementById("palindromo");
+            const dni=document.getElementById("dni");
+
+
+            
+
+            
+            /**
+             * Verificamos que:
+             * 1. No haya cadenas vacías o nulas.
+             * 2. El valor introducido sea numérico
+             * 3. Sea un valor en el rango
+             * 
+             * 
+             * PARA ELLO ES IMPORTANTE DECLARAR LAS VARIABLES QUE VAYAMOS A USAR FUERA DEL BUCLE, PARA QUE SEAN ACCESIBLES.
+            */
+            let eleccionString;
+            let eleccion;
+            let eleccionInvalida=true;
+            
+            while(eleccionInvalida){
+            /**Creamos un prompt para seleccionar cual de los programas queremos utilizar*/
+            eleccionString=prompt("Seleccione opción: \n"
+                + "1. Cálculo de factorial.\n" + "2. Cálculo de media.\n" + "3. Verificación de palíndromo: \n" + "4. Verificación de DNI: \n"
+            )    
+            
+            try {
+                          
+            //que no sean cadenas vacías o nulas.
+            if (eleccionString===null || eleccionString.trim()===""){
+                throw new Error ("Cadena nula o vacía");}    
+            
+            //convertimos el valor a Int
+            eleccion=parseInt(eleccionString);    
+            
+            //verificamos si es numero
+            if (isNaN(eleccion)){
+                throw new Error ("Valor introducido no numérico");
+            }    
+
+            if (eleccion<1 || eleccion >4) {
+                throw new Error ("Valor introducido fuera del rango (1 a 4)");
+            }
+            
+            //Si no hay errores
+            eleccionInvalida=false;
+            
+            } catch (error){
+
+            const mensajeError = error.message;
+            alert(mensajeError);}
+            }    
+
+
+            if (eleccion==1) {
+                factorial.style.display="block";
+
+            }
+
+        </script>
+
+    </div>
+    <br>    
+</body>
+</html>

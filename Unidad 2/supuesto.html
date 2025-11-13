@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Aplivcación adivina número</h1>
+
+    <p id="numerosecreto"></p>
+
+    <script>
+
+
+        function adivinaNumero() {
+        let numeroString=prompt("Intenda adivinar el número secreto entre 0 y 100");
+        let numero=parseInt(numeroString);
+        let numerosecreto=Math.floor(Math.random() * 101);
+        let contador=0;
+
+        do {            
+            contador+=1;
+
+        if (numero<numerosecreto) {
+           
+            alert("El número introducido es menor al que buscas");
+
+        } else if (numero>numerosecreto) {
+
+            alert("El número introducido es mayor al que buscas");
+
+        } } while(numero=!numerosecreto);
+
+        return `¡Has **acertado** el número! Era el ${numerosecreto}. Has necesitado **${contador}** intentos.`;}
+
+
+        const resultado = adivinaNumero();
+
+        document.getElementById("numerosecreto").innerHTML = resultado;
+
+
+       
+
+    </script>
+
+
+</body>
+</html>
