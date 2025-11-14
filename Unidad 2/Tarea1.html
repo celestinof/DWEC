@@ -14,7 +14,7 @@
         * Para tarea 2 módulo de DWEC en CIDEAD*/
 
 
-       /**
+    /**
     * Función que determina la calificación literal según la nota numérica introducida.
     * * @param {number} nota - La nota numérica obtenida, debe ser un valor entre 0 y 10.
      * @returns {string} El mensaje con la calificación y la nota introducida.
@@ -24,28 +24,27 @@
         
 
         //MANEJO DE ERRORES
-        // Error 3: Entrada vacía o nula (Cancelación/Vacío). Si es un string salta el if
+        // Error 1: Entrada vacía o nula (Cancelación/Vacío). Si es un string salta el if
         if (notaString === null || notaString.trim() === "") {
         throw new Error("GENERICO: Proceso cancelado o entrada vacía.");
         }
 
-        // Si no se da lo anterior, pasamos a convertir notaString a un float.
-        // Si no fuese un número, devolvería un NaN, por lo que hay que crear los siguientes errores
+        // Si no se da el error 1, pasamos a convertir notaString a un float.
         const nota = parseFloat(notaString.trim());
     
-        // Error 2: Caracteres no esperados (incluye NaN, que sucede si hay texto)
+        // Error 2: Evalúa si la conversión no es un número (parseFloat no tiene por que avisar del error aunque no sea numérico, por eso es necesario en este caso).
         if (isNaN(nota)) {
         throw new Error("CARACTERES NO ESPERADOS: La nota debe ser un valor numérico.");
         }
     
-        // Error 1: Fuera de rango [0, 10]
+        // Error 3: Si se ha introducido un número fuera de rango [0, 10]
         if (nota < 0 || nota > 10) {
         throw new Error("FUERA DE RANGO: La nota debe estar entre 0 y 10.");
         }
 
        
 
-        //GESTIÓN DE NOTAS
+        //---------------------GESTIÓN DE NOTAS-----------------------------------
 
         //suspenso
         if (nota<5) {
@@ -68,6 +67,7 @@
         /**
         * Función que solicita la nota al usuario por prompt y procesa el resultado.
         * Maneja errores de entrada (cancelación, valores inválidos) usando try...catch definidos en la función anterior.
+        * @param No tiene en este caso. He preferido dejar que se introduzcan por pantalla, peor lo lógico sería introducir a través de un formulario.
         */
 
         function darNota() {
