@@ -1,0 +1,11 @@
+    /*Por mantener la estructura del tema, dejo la estructura de directorios tal cual*/
+{
+    "compilerOptions": {
+        "target": "es6",                      // Version de ECMAScript para la compilación
+        "outDir": "./js",                     // Directorio de salida para los archivos JavaScript
+        "rootDir": "./ts",                    // Directorio raíz de los archivos TypeScript
+        "strict": true                        // Activar todas las verificaciones estrictas
+    },
+    "include": [
+        "./ts/**/*.ts"                        // Incluir todos los archivos TypeScript en el directorio ts
+    ]}

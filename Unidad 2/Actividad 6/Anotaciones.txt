@@ -1,0 +1,16 @@
+- El documento "comprueba_edad.ts" fue compilado mediante el comando tsc comprueba_edad.ts, dando resultado al archivo comprueba_edad.js compilado. 
+
+- Compilación Automática de TypeScript: (mucho más cómodo)
+
+En resumen, se trata de decirle al compilador de TypeScript dónde buscar el código (.ts), y donde tiene que guardar el (.js). Luego dejarlo trabajando en segundo plano para que compile automáticamente cada vez que se guarde las modificaciones en el archivo js, para no tener que compilar para ver cada cambio.
+
+1º. Tengo que preparar el archivo "tsconfig.json" con la carpeta del proyecto, con las instrucciones para el compilador (utilicé las que vienen en el tema).
+
+2º. Ejecutar en consola "tsc --watch". 
+
+Una vez ejecutado tsc-watch:
+
+- El comando tsc lee el tsconfig.json.
+- Comienza a vigilar los archivos dentro de la carpeta ts.
+- Cada vez que guardes un cambio en ts/comprueba_edad.ts, el compilador de TypeScrip genera automáticamente un archivo js, que almacena en la carpeta js configurada en el tsconfig.json. 
+- La compilaciçon automática continua en tanto no se cierre la terminal.
