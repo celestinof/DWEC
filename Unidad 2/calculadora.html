@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> Calculadora para Tarea móduko 2 de DWES </h1>
+
+    <form onsubmit="return calcular()">
+        <p>
+        <label for="num1">Primer número</label>
+        <input type="number" id="num1" required name="num1">
+        </p>
+
+        <p>
+        <label for="num2">Segundo número</label>
+        <input type="number" id="num2" required name="num2">      
+        </p>
+
+        <p>
+        <label for="operacion"> Seleccione la operación </label>
+        <select id="operacion">
+        <option value="suma"> Sumar (+)</option>
+        <option value="resta"> Restar (-)</option>
+        <option value="multiplicacion"> Multiplicar (*)</option>
+        <option value="dividir"> Division (/)</option>
+        <option value="resto"> Resto (%)</option>
+        <option value="potencia"> Potencia (**)</option>     
+        </select>    
+        
+        </p>
+        <input type="submit" value="calcular">
+        <p>
+
+        <p> 
+        <h1 id="resultado"></h1>
+        </p>
+    </form>
+
+    <script>
+        function calcular() {
+
+        // 1. Preparamos las variables (obtenemos los elementos HTML)
+        const num1String=document.getElementById("num1");
+        const num2String=document.getElementById("num2");
+        const operacionSelect=document.getElementById("operacion");
+        const resultadoParrafo=document.getElementById("resultado");
+
+        // 2. Convertimos a float (OJO: casi me vuelvo loco con esto por despiste. RECORDAR VALUE)
+        const num1 = parseFloat(num1String.value);
+        const num2 = parseFloat(num2String.value);
+        //obtenemos el valor del elemento html Select
+        const operacion = operacionSelect.value;
+        
+        // Variable para almacenar el resultado
+        let resultado;
+        
+        // 4. Ejecutamos la lógica de la calculadora
+        switch(operacion) {
+
+            case "suma": 
+                resultado=num1+num2;
+                break;
+
+            case "resta":
+                resultado=num1-num2;
+                break;
+
+            case "multiplicacion":
+                resultado=num1*num2;
+                break;
+
+            case "dividir":
+                //aprovechamos para evitar el error en la división por 0
+                if (num2 === 0) {
+                            resultado = "Error: División por cero";
+                        } else {
+                            resultado = num1 / num2;
+                        }
+                    
+                break;
+
+            case "resto":
+                 //aprovechamos para evitar el error en la división por 0
+                if (num2 === 0) {
+                            resultado = "Error: División por cero";
+                        } else {resultado=num1%num2;}
+                break;
+
+            case "potencia":
+                // Manejar casos especiales (exponente 0)
+                if (num2 === 0) {
+                    resultado = 1;
+                    break;
+                }
+
+                // Inicializar el resultado a 1
+                resultado = 1; 
+
+                for (let i = 0; i < num2; i++) {
+                    resultado *= num1; 
+                }
+        
+                break;            
+
+            default:
+                resultado="Operación no válida"
+                break;
+        }
+
+            resultadoParrafo.textContent=`El resultado de la operación es: ${resultado}`;
+
+            //IMPORTANTE. Evitar que el formulario se recarge Debemos pararlo con un return false.
+            return false;
+    }
+
+
+
+    </script>
+    
+</body>
+</html>

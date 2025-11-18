@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Edad Simple</title>
+</head>
+<body>
+
+    <h1>Verificador de Mayoría de Edad</h1>
+    <p>Introduce un valor numérico. La mayoría de edad se establece en 18.</p>
+
+    <!-- Formulario simple -->
+    <form onsubmit="return checkAge()">
+        
+        <div>
+            <label for="ageInput">Tu Edad (Número):</label>
+            <input
+                id="ageInput"
+                type="number"
+                placeholder="Ej: 25"
+                required
+            >
+        </div>
+        
+        <br>
+        
+        <button type="submit">
+            Comprobar Edad
+        </button>
+    </form>
+
+    <!-- Área de Resultados y Errores -->
+    <div id="resultContainer">
+        <!-- El resultado se inyecta aquí -->
+    </div>
+
+    <!-- Lógica de JavaScript con tipado JSDoc -->
+    <script>
+        // Constante con tipado
+        /** @type {number} */
+        const MAYORIA_DE_EDAD = 18;
+
+        /**
+         * Función principal que se ejecuta al enviar el formulario.
+         * @returns {boolean} Retorna false para evitar la recarga de la página.
+         */
+        function checkAge() {
+            // Obtener el elemento de entrada y el contenedor de resultados
+            /** @type {HTMLInputElement} */
+            const inputElement = document.getElementById('ageInput');
+            /** @type {HTMLElement} */
+            const resultContainer = document.getElementById('resultContainer');
+
+            // 1. Obtener el valor del input y convertirlo a número
+            /** @type {number} */
+            const age = parseFloat(inputElement.value);
+
+            let message = '';
+
+            // 2. Manejo de Errores (Avisar de posibles errores)
+            if (isNaN(age) || inputElement.value.trim() === '' || age < 0) {
+                // Error 1: El valor no es un número válido (NaN) o es negativo.
+                message = 'ERROR: Por favor, introduce una edad válida y positiva.';
+
+            } else if (age < MAYORIA_DE_EDAD) {
+                // 3. Menor de edad
+                message = `Tienes ${age} años. Eres MENOR de edad.`;
+
+            } else {
+                // 4. Mayor de edad
+                message = `Tienes ${age} años. Eres MAYOR de edad.`;
+            }
+
+            // 5. Mostrar el resultado (usando textContent para evitar inyectar HTML)
+            resultContainer.textContent = message;
+
+            // 6. Evitar la recarga de la página
+            return false;
+        }
+    </script>
+</body>
+</html>
