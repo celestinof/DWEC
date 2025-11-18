@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora</title>
 </head>
 
 <body>
-    <h1> Calculadora para Tarea móduko 2 de DWES </h1>
+    <h1> Calculadora para Tarea de la unidad 2 de DWES </h1>
 
+    <!--Iniciamos el formulario el formulario-->
     <form onsubmit="return calcular()">
+        
         <p>
         <label for="num1">Primer número</label>
         <input type="number" id="num1" required name="num1">
@@ -41,6 +43,7 @@
     </form>
 
     <script>
+        //Englobado en la funcion calcular
         function calcular() {
 
         // 1. Preparamos las variables (obtenemos los elementos HTML)
@@ -55,7 +58,7 @@
         //obtenemos el valor del elemento html Select
         const operacion = operacionSelect.value;
         
-        // Variable para almacenar el resultado
+        //3.  Variable para almacenar el resultado
         let resultado;
         
         // 4. Ejecutamos la lógica de la calculadora
@@ -110,7 +113,7 @@
                 resultado="Operación no válida"
                 break;
         }
-
+            //sacamos el resultado mediante el elemento del párrafo.
             resultadoParrafo.textContent=`El resultado de la operación es: ${resultado}`;
 
             //IMPORTANTE. Evitar que el formulario se recarge Debemos pararlo con un return false.

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprueba edad</title>
+</head>
+<h1 style="text-align:center">Comprobación de edad</h1>
+<body>
+    <form onsubmit="return compruebaEdad()">
+        <div>
+            <label for="edad">Introduce tu edad:</label>
+            <input id="edad" type="number" required>
+        </div>
+        <br>
+        <div>
+            <button type="submit">Comprueba la edad</button> 
+        </div>
+        <br>
+        <div>
+            <p id="resultado"></p>
+        </div>
+    </form>
+
+    <script>
+        function compruebaEdad(){
+
+        
+        const EDAD_INTRODUCIDA = document.getElementById("edad"); 
+        
+        //Obtener el .value del input antes convertirlo
+        const EDAD_INT = parseInt(EDAD_INTRODUCIDA.value);
+        
+        const RESULTADO = document.getElementById("resultado");
+        let resultado = ""; // Variable para almacenar el mensaje
+
+        if (EDAD_INT < 0 || EDAD_INT > 120 ){
+
+            resultado = "Edad fuera del rango admitido";
+
+        } else {
+        if (EDAD_INT < 18){
+
+            resultado = "Eres menor de edad";} 
+        
+            else {
+            resultado = "Eres mayor de edad";
+            }     
+        
+        }
+
+        RESULTADO.textContent = resultado;
+        return false;
+    }
+
+    </script>
+    
+</body>
+</html>
