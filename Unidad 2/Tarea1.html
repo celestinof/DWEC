@@ -20,9 +20,7 @@
      * @returns {string} El mensaje con la calificación y la nota introducida.
      * @throws {Error} Si la nota no es un número válido o está fuera del rango [0, 10].
     */
-       function calificaNota(notaString) {
-        
-
+       function calificaNota(notaString) {   
         //MANEJO DE ERRORES
         // Error 1: Entrada vacía o nula (Cancelación/Vacío). Si es un string salta el if
         if (notaString === null || notaString.trim() === "") {
@@ -41,9 +39,7 @@
         if (nota < 0 || nota > 10) {
         throw new Error("FUERA DE RANGO: La nota debe estar entre 0 y 10.");
         }
-
-       
-
+     
         //---------------------GESTIÓN DE NOTAS-----------------------------------
 
         //suspenso
@@ -64,6 +60,9 @@
         }}
     
 
+
+
+        //-------------------FUNCIÓN INICIADORA Y DE RESULTADO-----------------------
         /**
         * Función que solicita la nota al usuario por prompt y procesa el resultado.
         * Maneja errores de entrada (cancelación, valores inválidos) usando try...catch definidos en la función anterior.
