@@ -1,48 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarea 3 - Módulo 2 DWEC</title>
-    <style>
-        /*Para dar en la misma hoja algo de estilo css y ocultar las secciones (con display)*/
-        #factorial, #media, #palindromo, #dni {
-            display: none;
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-bottom: 10px;
-        }
-        h3 {
-            margin-top: 0;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    <h1 style="text-align:center">Tarea 3, módulo 2 de DWEC</h1>
-    <p id="opcion elegida"></p>
-
-    <div id="factorial">
-        <h3>Factorial de un número positivo</h3>
-        <p id="resultado_factorial"></p>
-    </div>
-    
-    <div id="media">
-        <h3>Calcular media aritmética de una lista</h3>
-        <p id="resultado_media"></p>
-    </div>
-    
-    <div id="palindromo">
-        <h3>Verificar Palíndromo</h3>
-        <p id="mensaje_palindromo"></p>
-    </div>
-    
-    <div id="dni">
-        <h3>Verifica DNI correcto</h3>
-        <p id="mensaje_dni"></p>
-    </div>
-
-    <script>
+   
         /**
          * @autor Celestino Amigo, para módulo de DAW.
         */
@@ -357,6 +313,3 @@
                 }
             }
         }
-    </script>
-</body>
-</html>
