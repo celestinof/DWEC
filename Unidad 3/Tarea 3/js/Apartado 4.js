@@ -11,9 +11,7 @@
         
 
         //----INICIAR LAS FUNCIONES DE LA WEB AL CARGAR EL DOM ----
-        /**
-         * Configura la aplicación.
-         */
+        /**Configura la aplicación.*/
         function iniciarApp() {
             // A. Carga los nombres guardados (localstorage) inmediatamente al abrir la página.
             mostrarLista(); 
@@ -23,15 +21,14 @@
             btnLimpiar.addEventListener('click', limpiar);
         }
 
-        // CASI LO MÁS IMPORTANTE. Espera a que la página HTML esté completamente cargada antes de iniciar la app.
+        // CASI LO MÁS IMPORTANTE. SE ME OLVIDA. Espera a que la página HTML esté completamente cargada antes de iniciar la app.
         document.addEventListener('DOMContentLoaded', iniciarApp); 
 
         // --- 2. PERSISTENCIA DE DATOS (localStorage) ---
 
-        /**
-         * Carga la lista de nombres desde localStorage, si la hay.
-         * @returns {Array} Un array de nombres (o un array vacío si no hay nada guardado).
-         */
+        /**Carga la lista de nombres desde localStorage, si la hay.
+         * @returns {Array} Un array de nombres (o un array vacío si no hay nada guardado).*/
+        
         function obtenerLista() {
         // localStorage.getItem() recupera los datos como una cadena JSON.
         const listaJSON = localStorage.getItem(CLAVE_ALMACENAMIENTO);
@@ -50,10 +47,8 @@
         return lista; //retorna la lista, que será un array en cualquier caso
         }
 
-        /**
-         * Guarda el array de nombres actual en localStorage.
-         * @param {Array} lista - El array de nombres a guardar.
-         */
+        /**Guarda el array de nombres actual en localStorage.
+         * @param {Array} lista - El array de nombres a guardar.*/
         function guardarLista(lista) {
             // JSON.stringify() convierte el Array en una cadena JSON para poder guardarse.
             const listaParaAlmacenar = JSON.stringify(lista);
@@ -65,10 +60,8 @@
 
         // --- 3. FUNCIONES DE VISTA (Interactúan con el HTML) ---
 
-    /**
-    * Actualiza la lista en el HTML, construyendo todos los <li> como una cadena de texto.
-    * Usa el método .forEach() y la propiedad innerHTML para insertar el HTML de golpe.
-    */
+    /**Actualiza la lista en el HTML, construyendo todos los <li> como una cadena de texto.
+    * Usa el método .forEach() y la propiedad innerHTML para insertar el HTML de golpe.*/
 
     function mostrarLista() {
     // Obtiene la lista de nombres del almacenamiento (que es un Array de JS).
