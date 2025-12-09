@@ -25,7 +25,7 @@
     //              FUNCIONES DE LA TAREA
     // ===============================================
 
-    const longTexto="";
+    
     // Apartado 3.1. Longitud
     function compLongitud() {
         const textoActual = obtenerTexto();
