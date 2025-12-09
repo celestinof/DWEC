@@ -1,0 +1,49 @@
+<!DOCTYPE  html>
+<html>
+    <head>
+        <meta  http-equiv="content-type"  content="text/html;charset=utf-8">
+        <title>Apertura y Cierre de Ventanas</title>
+        <script type="text/javascript">
+            const inicializar = () => {
+                document.getElementById("crear-ventana").onclick=crearNueva;
+                document.getElementById("cerrar-ventana").onclick=cerrarNueva;
+            }
+
+            let  nuevaVentana;
+
+            const crearNueva = () =>  {
+                nuevaVentana  =  window.open("http://www.google.es","","height=400,width=800");
+            }
+
+            const cerrarNueva = () =>  {
+                if  (nuevaVentana) {
+                    nuevaVentana.close(); nuevaVentana  =  null;
+                }
+            }
+        </script>
+    </head>
+    <body onLoad="inicializar()">
+    <h1>Abrimos y cerramos ventanas</h1>
+    <form>
+        <input  type="button"  id="crear-ventana"  value="Crear Nueva Ventana">
+        <input  type="button"  id="cerrar-ventana"  value="Cerrar Nueva Ventana">
+    </form>
+</html>
+
+<!--
+¿Por que no funciona el script?
+
+La función crearNueva() utiliza window.open("http://www.google.es", ...) 
+para abrir una ventana que carga una URL externa (google.es).
+
+Una vez que la nueva ventana carga google.es,
+ su origen de dominio cambia de ser la página que la abrió (tu página) a ser google.es.
+
+Debido a las políticas de "Mismo Origen" (Same-Origin Policy),
+ la ventana original (la tuya) pierde los permisos para interactuar 
+ o cerrar la ventana recién abierta, porque ahora está mostrando contenido de un
+  dominio diferente (google.es).
+
+
+Si pruebas a hacerlo desconectado, sí que funciona.  
+-->
