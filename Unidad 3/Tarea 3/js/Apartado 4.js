@@ -30,25 +30,26 @@
          * @returns {Array} Un array de nombres (o un array vacío si no hay nada guardado).*/
         
         function obtenerLista() {
-        // localStorage.getItem() recupera los datos como una cadena JSON.
-        const listaJSON = localStorage.getItem(CLAVE_ALMACENAMIENTO);
+            // localStorage.getItem() recupera los datos como una cadena JSON.
+            const listaJSON = localStorage.getItem(CLAVE_ALMACENAMIENTO);
 
-        let lista; // Variable para almacenar el resultado final.
+            let lista; // Variable para almacenar el resultado final.
 
-        // Comprobamos si listaJSON tiene un valor (no es null, undefined, o una cadena vacía)
-        if (listaJSON) {
-        // Si hay datos (la condición es verdadera), los convertimos de JSON a Array.
-        lista = JSON.parse(listaJSON);
-        } else {
-        // Si no hay datos (la condición es falsa, generalmente porque es null), inicializamos con un Array vacío.
-        lista = [];
-        }
+            // Comprobamos si listaJSON tiene un valor (no es null, undefined, o una cadena vacía)
+            if (listaJSON) {
+            // Si hay datos (la condición es verdadera), los convertimos de JSON a Array.
+            lista = JSON.parse(listaJSON);
+            } else {
+            // Si no hay datos (la condición es falsa, generalmente porque es null), inicializamos con un Array vacío.
+            lista = [];
+            }
 
-        return lista; //retorna la lista, que será un array en cualquier caso
-        }
+            return lista; //retorna la lista, que será un array en cualquier caso
+            }
 
         /**Guarda el array de nombres actual en localStorage.
          * @param {Array} lista - El array de nombres a guardar.*/
+
         function guardarLista(lista) {
             // JSON.stringify() convierte el Array en una cadena JSON para poder guardarse.
             const listaParaAlmacenar = JSON.stringify(lista);
@@ -64,32 +65,30 @@
     * Usa el método .forEach() y la propiedad innerHTML para insertar el HTML de golpe.*/
 
     function mostrarLista() {
-    // Obtiene la lista de nombres del almacenamiento (que es un Array de JS).
-    const listaGuardada = obtenerLista();
-    
-    // Inicializamos una variable para construir la cadena HTML de todos los <li>.
-    let contenidoHTML = ''; 
-    
-    // RECORRIDO USANDO .forEach()
-    // Por cada 'nombre' en el array, ejecutamos el código.
-    listaGuardada.forEach(nombre => {
-        // Concatenamos (añadimos) a la cadena 'contenidoHTML' la estructura <li>...</li>
-        // Se crean manualmente las etiquetas HTML como parte del texto.
-        contenidoHTML += `<li>${nombre}</li>`; 
-    });
+        // Obtiene la lista de nombres del almacenamiento (que es un Array de JS).
+        const listaGuardada = obtenerLista();
+        
+        // Inicializamos una variable para construir la cadena HTML de todos los <li>.
+        let contenidoHTML = ''; 
+        
+        // RECORRIDO USANDO .forEach()
+        // Por cada 'nombre' en el array, ejecutamos el código.
+        listaGuardada.forEach(nombre => {
+            // Concatenamos (añadimos) a la cadena 'contenidoHTML' la estructura <li>...</li>
+            // Se crean manualmente las etiquetas HTML como parte del texto.
+            contenidoHTML += `<li>${nombre}</li>`; 
+        });
 
-    // NSERCIÓN EN EL DOM (El reemplazo de createElement/appendChild)
-    
-    // listaMostrar (que es la referencia al <ul>) limpia y reemplaza su contenido
-    // inyectando la cadena de texto HTML que acabamos de construir.
-    listaMostrar.innerHTML = contenidoHTML; 
+        // NSERCIÓN EN EL DOM (El reemplazo de createElement/appendChild)
+        
+        // listaMostrar (que es la referencia al <ul>) limpia y reemplaza su contenido
+        // inyectando la cadena de texto HTML que acabamos de construir.
+        listaMostrar.innerHTML = contenidoHTML; 
     }
 
         // --- 4. FUNCIONES DE EVENTO (BOTONES) ---
 
-        /**
-         * Se ejecuta al pulsar "Añadir".
-         */
+        /**Se ejecuta al pulsar "Añadir"*/
         function añadir() {
             //El valor de la lista sin espacios
             const nuevoNombre = inputLista.value.trim();
@@ -114,9 +113,7 @@
             }
         }
 
-        /**
-         * Se ejecuta al pulsar "Limpiar Todo".
-         */
+        /** Se ejecuta al pulsar "Limpiar Todo".*/
         function limpiar() {
             if (confirm("¿Seguro que quieres borrar TODOS los nombres guardados?")) {
                 // localStorage.removeItem() borra permanentemente la clave.
