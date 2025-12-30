@@ -1,0 +1,3 @@
+[submodule "Mouredevjs"]
+	path = Mouredevjs
+	url = https://github.com/mouredev/hello-javascript
