@@ -1,0 +1,51 @@
+
+/*Cuerpo normal, nada que comentar*/
+body{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/*Estilos para accordion, nada que comentar*/
+.accordion {
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/*Estilos para los enlaces de accordion. 
+Nada que comentar salvo el cambio de cursor*/
+.accordion .enlace {
+    display: block;
+    padding: 10px;
+    background-color: #f1f1f1;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/*Nada que comentar:
+Al pasar por encima del enlace se difumina*/
+.accordion .enlace:hover {
+    background-color: #ddd;
+}
+
+/*Aquí tenemos la miga:
+Por defecto, la clase contenido está oculta
+*/
+.accordion .contenido {
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    display: none;
+}
+
+/*Si hacemos que accordion pase de class="accordion"
+a class="accordion active", se verá el contenido. Con
+lo cual se trata de cambiar la clase*/
+.accordion.active .contenido {
+    display: block;
+}
