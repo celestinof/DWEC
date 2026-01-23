@@ -7,13 +7,16 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Hoja de estilos CSS-->
         <link rel="stylesheet" href="main.css">
+        <!--Hoja de JS con los atributos que mencionamos antes-->
         <script src="main.js" async defer></script>
 
     </head>
     <body>
         <fieldset>
             <legend>DWEC05 - Actividad 2</legend>
+            <!--Formulario-->
             <form name="formulario" id="formulario" action="http://www.google.es" method="get">
                 <div class="campo">
                     <label for="nombre">Nombre:</label>
@@ -25,6 +28,7 @@
                     <input type="text" name="apellidos" id="apellidos" />
                 </div>
 
+                <!--Retocamos edad para que sea un número positivo entre 0 y 105-->
                 <div class="campo">
                     <label for="edad">Edad:</label>
                     <input name="edad" type="number" id="edad" min="0" max="105" />
@@ -54,20 +58,21 @@
                         <option value="HU">Huelva</option>
                     </select>
                 </div>
-
+                <!--Para la fecha indicamos el type date en vez de text-->
                 <div class="campo">
                     <label for="fecha">Fecha Nacimiento:</label>
-                    <input name="fecha" type="text" id="fecha" />
+                    <input name="fecha" type="date" id="fecha" />
                 </div>
 
+                <!--Retocamos teléfono para que sea tipo teléfono indicando la forma numérica-->
                 <div class="campo">
                     <label for="telefono">Teléfono:</label>
                     <input name="telefono" type="tel" id="telefono" pattern="[0-9]{9}" />
                 </div>
-
+                <!--Para la hora tocamos el type cambiandolo a time en vez de text-->
                 <div class="campo">
                     <label for="hora">Hora de visita:</label>
-                    <input name="hora" type="text" id="hora" />
+                    <input name="hora" type="time" id="hora" />
                 </div>
 
                 <div class="botones">
