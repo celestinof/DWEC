@@ -1,0 +1,56 @@
+<html">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tabla Interactiva</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/main.css">
+    </head>
+
+    <body>
+        <div id="tablaInteractiva">
+            <div>
+                <form>
+                    <div><label for="nombre">Nombre</label><input name="nombre" type="text" required=""></div>
+                    <div><label for="apellidos">Apellidos</label><input name="apellidos" type="text" required=""></div>
+                    <div><label for="edad">Edad</label><input name="edad" type="number" required=""></div>
+                    <div><input type="submit" value="Añadir"></div>
+                </form>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Edad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </tbody>
+                <tr>
+                    <td class="nombre">Oscar</td>
+                    <td class="apellidos">Gomez</td>
+                    <td class="edad">32</td>
+                    <td>
+                        <div class="Remove bi bi-trash"></div>
+                        <div class="Up bi bi-arrow-up"></div>
+                        <div class="Down bi bi-arrow-down"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="nombre">Ana</td>
+                    <td class="apellidos">Gonzalez</td>
+                    <td class="edad">33</td>
+                    <td>
+                        <div class="Remove bi bi-trash"></div>
+                        <div class="Up bi bi-arrow-up"></div>
+                        <div class="Down bi bi-arrow-down"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script src="./js/main.js" type="module" async="" defer=""></script>
+    </body>
+
+    </html>

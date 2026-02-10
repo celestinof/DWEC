@@ -1,0 +1,116 @@
+/* --- Estilo general para el contenedor principal --- */
+#tablaInteractiva {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+
+/* --- Estilos del formulario --- */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los elementos del formulario */
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Asegura que los inputs ocupen el mismo espacio */
+    min-width: 200px; /* Ancho mínimo para que no se encojan demasiado */
+}
+
+/* --- Estilos del formulario --- */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Hacer que los inputs ocupen todo el ancho disponible */
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start; /* El botón se alinea al inicio */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+input:invalid{
+    border-color: red;
+}
+
+
+/* --- Estilos de la tabla --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th, td{
+    padding: 12px;
+    text-align: left;
+
+}
+
+tr {
+    background-color: #f8f8f8;
+}
+
+tr:nth-child(even) {
+    background-color: #d6d6d6;
+}
+
+tr:hover, tr:focus-within {
+    background-color: #7dd9f3; 
+}
+
+td:last-child {
+    width: 1%;
+    white-space: nowrap;
+}
+
+/* --- Estilos para los botones de acción en la tabla (iconos) --- */
+/* Colores al pasar el mouse */
+.Remove:hover {
+    color: #f44336; /* Rojo para Eliminar */
+}
+
+.Up:hover {
+    color: #FFC107; /* Amarillo para Subir */
+}
+
+.Down:hover {
+    color: #FF5722; /* Naranja para Bajar */
+}
+
+.Remove, .Up, .Down{
+    display: inline;
+}
