@@ -79,23 +79,4 @@ input[type="reset"]:hover, input[type="submit"]:hover {
     background-color: #555;
 }
 
-/* Responsividad */
-@media (max-width: 600px) {
-    fieldset {
-        padding: 15px;
-    }
 
-    input, select {
-        font-size: 0.9em;
-        height: 35px;
-    }
-
-    input[type="reset"], input[type="submit"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .botones {
-        flex-direction: column;
-    }
-}

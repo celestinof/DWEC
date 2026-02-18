@@ -1,4 +1,4 @@
-// Estos son los datos iniciales que nos pide el ejercicio [cite: 17-20]
+// Estos son los datos iniciales que nos pide el ejercicio 
 let datosIniciales = [
     { nombre: "Oscar", apellidos: "Gomez", edad: "32" },
     { nombre: "Ana", apellidos: "Gonzalez", edad: "33" }
@@ -9,17 +9,17 @@ const formulario = document.querySelector('form');
 const tabla = document.querySelector('table tbody');
 const botonAñadir = document.querySelector('input[type="submit"]');
 
-// Función que se ejecuta al cargar la página [cite: 16]
+// Función que se ejecuta al cargar la página 
 window.onload = () => {
     // Metemos los datos iniciales en la tabla
     datosIniciales.forEach(persona => {
         crearNuevaFila(persona.nombre, persona.apellidos, persona.edad);
     });
-    // Comprobar si el botón debe estar activo al principio [cite: 6]
+    // Comprobar si el botón debe estar activo al principio 
     validarFormulario();
 };
 
-// Esta función crea una fila nueva usando el sistema de nodos [cite: 7]
+// Esta función crea una fila nueva usando el sistema de nodos 
 function crearNuevaFila(nombre, apellido, edad) {
     const fila = document.createElement('tr');
 
@@ -35,10 +35,10 @@ function crearNuevaFila(nombre, apellido, edad) {
         </td>
     `;
 
-    // Buscamos los botones dentro de la fila recién creada para darles funciones [cite: 9]
-    fila.querySelector('.boton-borrar').onclick = () => fila.remove(); // Borra la fila [cite: 11]
-    fila.querySelector('.boton-subir').onclick = () => subirFila(fila); // Sube la fila [cite: 12]
-    fila.querySelector('.boton-bajar').onclick = () => bajarFila(fila); // Baja la fila [cite: 14]
+    // Buscamos los botones dentro de la fila recién creada para darles funciones 
+    fila.querySelector('.boton-borrar').onclick = () => fila.remove(); 
+    fila.querySelector('.boton-subir').onclick = () => subirFila(fila);
+    fila.querySelector('.boton-bajar').onclick = () => bajarFila(fila); 
 
     // Añadimos la fila al final de la tabla [cite: 4]
     tabla.appendChild(fila);
@@ -53,16 +53,16 @@ function subirFila(fila) {
     }
 }
 
-// Función para bajar una fila [cite: 14]
+// Función para bajar una fila
 function bajarFila(fila) {
     const filaSiguiente = fila.nextElementSibling;
-    // Si hay una fila debajo, la movemos [cite: 15]
+    // Si hay una fila debajo, la movemos
     if (filaSiguiente) {
         fila.parentNode.insertBefore(filaSiguiente, fila);
     }
 }
 
-// Comprobar que los inputs no estén vacíos [cite: 6]
+// Comprobar que los inputs no estén vacíos
 function validarFormulario() {
     const inputs = formulario.querySelectorAll('input[required]');
     let todoLleno = true;
@@ -90,7 +90,7 @@ formulario.onsubmit = (evento) => {
     // Añadimos la fila
     crearNuevaFila(nombre, apellido, edad);
 
-    // Limpiamos los cuadros de texto [cite: 5]
+    // Limpiamos los cuadros de texto
     formulario.reset();
     validarFormulario();
 };

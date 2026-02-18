@@ -2,19 +2,17 @@
 
 window.addEventListener("load", () => {
     //Creamos constantes para acceder más fácilemte
+
     //formulario
     const formulario = document.getElementById("formulario");
-
     // nombre (con getElement)
     const nombre= document.getElementById("nombre");
-
     //apellidos (con querySelector, por mostrar otra forma de hacerlo)
     const apellido=document.querySelector("#apellidos");
     //Obtenemos edad
     const edad = document.getElementById("edad");
     //Obtenemos el NIF
     const nifInput = document.getElementById("nif");
-
     //Constante para email
     const email = document.getElementById("email");
     //Constante para provincia
@@ -27,27 +25,19 @@ window.addEventListener("load", () => {
     const hora = document.getElementById("hora");
 
 
-   //1. Cada vez que los campos NOMBRE y APELLIDOS pierdan el foco, el contenido que se haya escrito en esos campos se convertirá a mayúsculas.
+   //1. + 2. Cada vez que los campos NOMBRE y APELLIDOS pierdan el foco, el contenido que se haya escrito en esos campos se convertirá a mayúsculas.
    
     //cuando nombre pierde el foco...
     nombre.addEventListener("blur", (e) => {
     //... cogemos lo que está escrito y lo pasamos a mayúsculas 
-        e.target.value = e.target.value.toUpperCase();
-    
-    
-    
-    //2. Se debe validar que nombre y apellidos sean cadenas de texto, sin números ni caracteres especiales (p. ej. =, %, etc.).
+        e.target.value = e.target.value.toUpperCase();     
+    //Se debe validar que nombre y apellidos sean cadenas de texto, sin números ni caracteres especiales (p. ej. =, %, etc.).
     //Usamos regExp = /^[a-zA-ZÁÉÍÓÚÑ\s]+$/
     /**
-     * a-z y A-Z: Letras normales.
-     * ÁÉÍÓÚÑ: Letras con tildes y eñes.
-     * \s: Espacios en blanco (necesario para nombres compuestos).
-     * +: Significa que debe haber al menos una letra.
-     * $: QUe ahí termina la cadena correcto (y no vengan sorpresas tras un espacio)    */
+     * a-z y A-Z: Letras normales. ÁÉÍÓÚÑ: Letras con tildes y eñes. \s: Espacios en blanco (necesario para nombres compuestos). +: Significa que debe haber al menos una letra. $: QUe ahí termina la cadena correcto (y no vengan sorpresas tras un espacio)    */
 
     const patron=/^[a-zA-ZÁÉÍÓÚÑ\s]+$/;
-
-        const valor = e.target.value;
+    const valor = e.target.value;
 
         if ((!patron.test(valor))){
             // Si hay números o símbolos, ponemos el mensaje de error
@@ -61,11 +51,9 @@ window.addEventListener("load", () => {
     apellido.addEventListener("blur", (e) => {
         e.target.value=e.target.value.toUpperCase();
 
-    //Lo mismo para el 2
-
-        const patron=/^[a-zA-ZÁÉÍÓÚÑ\s]+$/;
-
-        const valor = e.target.value;
+    
+    const patron=/^[a-zA-ZÁÉÍÓÚÑ\s]+$/;
+    const valor = e.target.value;
 
         if ((!patron.test(valor))){
             // Si hay números o símbolos, ponemos el mensaje de error
@@ -73,9 +61,9 @@ window.addEventListener("load", () => {
     } else {
         // Si es correcto (o está vacío), borramos cualquier error previo
         e.target.setCustomValidity("");
-    }
+    }})
 
-    })
+
 
     //3. edad
     edad.addEventListener("blur", (e) => {
@@ -90,20 +78,14 @@ window.addEventListener("load", () => {
   
     //4. 4.	Se debe validar el NIF utilizando expresiones regulares para que siga el formato "12345678A". 
     // Además, válida que la letra sea la correcta. Y debe validarse cada vez que se introduce un carácter en el input.
-
-
     nifInput.addEventListener("input", (e) => {
-
     //lo ponemos con letras mayúsculas    
     const nif = e.target.value.toUpperCase();
-
-
-    e.target.value = nif; // Forzamos mayúsculas mientras escribe
-    
+    e.target.value = nif; // Forzamos mayúsculas mientras escribe 
     //Para las validaciones del NIF
     const letras = "TRWAGMYFPDXBNJZSQVHLCKE";
     const formatoValido = /^\d{8}[A-Z]$/.test(nif);
-
+   
     if (nif.length == 9) {
         if (formatoValido) {
             //8 primeros son letras
@@ -213,7 +195,10 @@ window.addEventListener("load", () => {
 
 
 })
-    /**
+    
+
+
+/**
      * En el desarrollo del ejercicio, encontré otra forma más rápida de hacerlo que dejo señalada para estudiar
      * Crea un array con apellido y nombre y aplica la función a los 2
     const camposTexto = document.querySelectorAll("#nombre, #apellidos");
